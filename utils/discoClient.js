@@ -32,3 +32,31 @@ export const issueCredential = async (schemaUrl, ethAddress, subjectData) => {
     }
   };
   
+
+  export const fetchCreds = async (ethAddress) => {
+    const apiKey = process.env.DISCO_API_KEY;  
+    const requestUrl = `https://api.disco.xyz/v1/profile/address/${ethAddress}`;
+  
+    try {
+      console.log("GETTING...");
+      const response = await fetch(requestUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiKey}`,
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to issue credential');
+      }
+  
+      const profile_data = await response.json();
+      console.log('ProfileData:,', profile_data);
+      return profile_data;
+    } catch (error) {
+      console.error('Failed to issue credential:', error);
+      throw error;
+    }
+  };
+  

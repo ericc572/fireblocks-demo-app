@@ -14,30 +14,10 @@ type Connector =
   | WalletConnectConnector
   | WalletLinkConnector;
 
-const connectors = ({ chainId }: { chainId?: number }): Connector[] => {
-  const rpcUrl =
-    chains.find((x) => x.id === chainId)?.rpcUrls?.[0] ??
-    chain.mainnet.rpcUrls[0];
-  return [
-    new InjectedConnector({ chains }),
-    new WalletConnectConnector({
-      options: {
-        infuraId,
-        qrcode: true,
-      },
-    }),
-    new WalletLinkConnector({
-      options: {
-        appName: "NextJS-wagmi",
-        jsonRpcUrl: `${rpcUrl}/${infuraId}`,
-      },
-    }),
-  ];
-};
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider autoConnect connectors={connectors}>
+    <Provider autoConnect>
       <Component {...pageProps} />
     </Provider>
   );
