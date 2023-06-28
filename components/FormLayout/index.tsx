@@ -80,12 +80,12 @@ export default function Layout(props: Props) {
         <div className="pl-4 mt-4">
           <p className="block text-gray-700 font-bold mb-2">
             We get it, you hate forms. We fill out the same party stuff all the time.<br />
-            If this were an RSVP form, we’d fill it out for you.<br /> <br /> < br /> 
+            If this were an RSVP form, we&lsquo;d fill it out for you.<br /> <br /> < br /> 
             
             Your address is <strong className="border border-blue-500 px-2 py-1 rounded-lg"> {address}. </strong><br />
             We see that you are a Member of: <strong className="border border-blue-500 px-2 py-1 rounded-lg"> {membership}.</strong> <br/>
-            If we were throwing a party, we’d save you a t-shirt that's size: <strong className="border border-blue-500 px-2 py-1 rounded-lg"> {tShirtSize} </strong>.<br />
-            With aesthetics, we’ll remember that you’re partial to: <strong className="border border-blue-500 px-2 py-1 rounded-lg"> {lightModePreference} </strong> mode.<br />
+            If we were throwing a party, we&lsquo;d save you a t-shirt that&lsquo;s size: <strong className="border border-blue-500 px-2 py-1 rounded-lg"> {tShirtSize} </strong>.<br />
+            With aesthetics, we&lsquo;ll remember that you&lsquo;re partial to: <strong className="border border-blue-500 px-2 py-1 rounded-lg"> {lightModePreference} </strong> mode.<br />
             Collect a GM, like an RSVP but better.<br />
           </p>
         </div>

@@ -1,18 +1,19 @@
-# Disco GM Faucet Demo 🕺🔮
+# Disco FormFill Demo 📝✨
 
 <!-- ### Check out the live demo 👉 [NextJS wagmi](https://nextjs-wagmi.vercel.app/) -->
 
 ## Overview
-This demo showcases the process of programmatic issuance to a Disco Data Backpack via an Ethereum (ETH) address using Next, React, and Tailwinds CSS.
+This demo showcases the functionality of reading Disco Data Backpack data to automatically fill out a form. The form is populated with information retrieved from a Disco API using Next.js, React, and Tailwind CSS.
 
-Users can connect their wallet and click a button to receive a GM Verifiable Credential issued by Disco. 
+Users can connect their wallet, and upon clicking a button, the form is automatically filled with relevant data from their Disco Data Backpack.
 
 
 ## How to use this template
 
+
 ### 1. Clone this app
 ```
-git clone https://github.com/discoxyz/programmatic-issuance-demo.git
+git clone https://github.com/discoxyz/disco-formfill.git
 ```
 
 ### 2. Install Dependencies
@@ -22,33 +23,28 @@ yarn install
 
 ### 3. Grab Disco API Key
 
-Self-service API keys are now available to profiles with organization credentials. Steps to generating a key are [here](https://disco.mirror.xyz/8AkcZERU2amKqb5cQj3GLoFDtxDm0uwi-Zp_m5_L5hM).
+Self-service API keys are now available to ALL profiles. Steps to generating a key are [here](https://docs.disco.xyz/v2/for-developers/get-started-with-discos-api).
 
 Add this to .env.local:
-
 ```bash
 DISCO_API_KEY=<insert api key>
 ```
 
-### 4. Credential Issuance
-In index.ts, replace the following line with the schema URL of your choice. If there is metadata, pass in a `subjectData: {}` JSON object as the third argument to issueCredential.
+### 4. Start the local development environment
 
-```javascript
-55 const schemaUrl = 'https://raw.githubusercontent.com/discoxyz/disco-schemas/main/json/GMCredential/1-0-0.json';
-```
-All schemas can be found here: https://github.com/discoxyz/disco-schemas.
-
-In `discoClient.js`, we are making the request to the Disco API, feel free to modify the request/response logic here.
-
-### 5. Start the local development environment
 ```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the form fill demo.
 
+### 5. Connect Your Wallet and Fill the Form
+
+Click the "Connect Wallet" button to connect your wallet. Once connected, click the "Fetch Data" button to fetch the data from the Disco API and automatically fill the form fields.
 Connect Wallet, and Click Issue GM Credential! Go to [app.disco.xyz](app.disco.xyz) to see the credential in your inbox, almost instantaneously.
 
+
+<br/>
 ## Resources
 
 - [Learn about Disco](https://docs.disco.xyz) - all things Disco!
