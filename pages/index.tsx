@@ -14,6 +14,7 @@ const Home: NextPage = () => {
   const [username, setUserName] = useState('');
   const [address, setAddress] = useState('');
   const [lightModePreference, setLightModePreference] = useState('');
+  const [membership, setMembership] = useState('');
 
   const loading = (accountLoading);
 
@@ -29,16 +30,17 @@ const Home: NextPage = () => {
     const tshirtSizeCredentials = data.creds.filter(
       (credential: { type: any; }) => credential.type[1] === 'TshirtSizeCredential');
     
-    console.log(tshirtSizeCredentials);
 
     const lightModePrefCredentials = data.creds.filter(
         (credential: { type: any; }) => credential.type[1] === 'DarkModePreferenceCredential');
     
-    console.log(lightModePrefCredentials);
+    const membershipCredentials = data.creds.filter(
+          (credential: { type: any; }) => credential.type[1] === 'MembershipCredential');
+    
+    setTShirtSize(tshirtSizeCredentials ? tshirtSizeCredentials[0].credentialSubject.tshirtSize : '');
+    setLightModePreference(lightModePrefCredentials ? lightModePrefCredentials[0].credentialSubject.preference : '');
+    setMembership(membershipCredentials ? membershipCredentials[0].credentialSubject.organization : '');
 
-
-    setTShirtSize(tshirtSizeCredentials[0].credentialSubject.tshirtSize);
-    setLightModePreference(lightModePrefCredentials[0].credentialSubject.preference);
   }
 
   const renderContent = () => {
@@ -47,6 +49,18 @@ const Home: NextPage = () => {
       <>
       </>
     );
+  };
+
+  const issueGmCredential = async (recipient: string): Promise<void> => {
+    const schemaUrl = 'https://raw.githubusercontent.com/discoxyz/disco-schemas/main/json/GMCredential/1-0-0.json';
+  
+    try {
+      console.log(`Issuing cred to: ${recipient}`);
+      const credential = await issueCredential(schemaUrl, recipient, {});
+      // console.log('Issued credential:', credential);
+    } catch (error) {
+      console.error('Failed to issue credential:', error);
+    }
   };
 
   return (
@@ -60,9 +74,11 @@ const Home: NextPage = () => {
         showWalletOptions={showWalletOptions}
         setShowWalletOptions={setShowWalletOptions}
         username={username}
+        membership={membership}
         address={address}
         tShirtSize={tShirtSize}
         lightModePreference={lightModePreference}
+
       >
         <div className="grid h-screen place-items-center">
           <div className="grid place-items-center">{renderContent()}</div>
@@ -73,6 +89,7 @@ const Home: NextPage = () => {
       <Button loading={false} onClick={() => issueCredential(accountData?.address)}>Collect a GM </Button>
     </>
   );
+  
 };
 
 export default Home;

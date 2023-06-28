@@ -13,10 +13,11 @@ interface Props {
   address: string;
   tShirtSize: string;
   lightModePreference: string;
+  membership: string;
 }
 
 export default function Layout(props: Props) {
-  const { children, showWalletOptions, setShowWalletOptions, username, address, tShirtSize, lightModePreference } = props;
+  const { children, showWalletOptions, setShowWalletOptions, username, address, tShirtSize, lightModePreference, membership } = props;
   
   const [{ data: accountData, loading }, disconnect] = useAccount({
     fetchEns: true,
@@ -69,7 +70,7 @@ export default function Layout(props: Props) {
         setOpen={setShowWalletOptions}
       />
 
-      <div className="relative">
+  <div className="relative">
         <div className="flex items-center justify-between p-4">
           <div className="text-2xl font-bold cursor-default">
             <h2> Welcome {username}!</h2>
@@ -82,6 +83,7 @@ export default function Layout(props: Props) {
             If this were an RSVP form, we’d fill it out for you.<br /> <br /> < br /> 
             
             Your address is <strong className="border border-blue-500 px-2 py-1 rounded-lg"> {address}. </strong><br />
+            We see that you are a Member of: <strong className="border border-blue-500 px-2 py-1 rounded-lg"> {membership}.</strong> <br/>
             If we were throwing a party, we’d save you a t-shirt that's size: <strong className="border border-blue-500 px-2 py-1 rounded-lg"> {tShirtSize} </strong>.<br />
             With aesthetics, we’ll remember that you’re partial to: <strong className="border border-blue-500 px-2 py-1 rounded-lg"> {lightModePreference} </strong> mode.<br />
             Collect a GM, like an RSVP but better.<br />
