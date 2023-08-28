@@ -21,6 +21,28 @@ export default function Layout(props: Props) {
     if (accountData?.ens) {
       return (
         <>
+          <div className="relative w-8 h-8 mr-2">
+            {accountData.ens.avatar ? (
+              <Image
+                src={accountData?.ens.avatar}
+                alt="ENS Avatar"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-full"
+              />
+            ) : (
+              <Image
+                src="/images/black-gradient.png"
+                alt="ENS Avatar"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-full"
+              />
+            )}
+          </div>
+          <span className="truncate max-w-[100px]">
+            {accountData.ens?.name}
+          </span>
         </>
       );
     }
@@ -45,7 +67,7 @@ export default function Layout(props: Props) {
         loading={loading || showWalletOptions}
         onClick={() => setShowWalletOptions(true)}
       >
-        Connect Wallet
+        Connect
       </Button>
     );
   };
@@ -53,22 +75,16 @@ export default function Layout(props: Props) {
   return (
     <div>
       <Head>
-        <title>Disco Demo Template </title>
-        <meta name="description" content="Disco Wagmi Template" />
-        <link rel="icon" href="/favicon.ico" />
+        <title> Fireblocks app demo </title>
       </Head>
 
       <WalletOptionsModal
         open={showWalletOptions}
         setOpen={setShowWalletOptions}
       />
-
-      <div className="absolute w-screen bg-gradient-to-r from-indigo-500 from-10%">
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center">
-            <h4 className="text-2xl font-bold text-white cursor-default">
-              Disco Demo Template
-            </h4>
+    <div>
+        <div className="flex p-4">
+          <div className="flex">
           </div>
           {renderButton()}
         </div>

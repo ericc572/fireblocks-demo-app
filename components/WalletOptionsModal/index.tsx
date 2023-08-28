@@ -16,6 +16,7 @@ export default function WalletOptionsModal(props: Props) {
     useConnect();
   const [{ data: accountData }] = useAccount();
 
+  
   useEffect(() => {
     accountData && setOpen(false);
   }, [accountData, setOpen]);
