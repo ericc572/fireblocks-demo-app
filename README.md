@@ -1,9 +1,14 @@
+<<<<<<< Updated upstream
 # Welcome to the NextJS wagmi starter template 👋
 Looking to get up and running with a Typescript / NextJS dApp as quickly as possible? You're in the right place! This repo serves as a minimal template for integrating the wagmi React hooks for Ethereum library with Typescript & NextJS. Due to its ease of customizability and extensibility, this template has been styled with the Tailwind CSS framework. Let's get to it!
 ### Check out the live demo 👉 [NextJS wagmi](https://nextjs-wagmi.vercel.app/)
+=======
+# Fireblocks Demo App
+>>>>>>> Stashed changes
 
 ## Get up and running in 3 simple steps:
 
+<<<<<<< Updated upstream
 ### 1. Create an app using this repo as the template
 ```bash
 npx create-next-app@latest -e https://github.com/Seth-McKilla/nextjs-wagmi
@@ -40,3 +45,24 @@ To learn more about the packages used in this project, take a look at the follow
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSeth-McKilla%2Fnextjs-wagmi&env=NEXT_PUBLIC_INFURA_ID)
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+=======
+## Overview
+This demo showcases the functionality of connecting a wallet via Metamask, then displaying the:
+- Wallet Address
+- Account Balance
+- Latest transaction hash if at all. Displays none if does not exist.
+
+## Technologies utilized
+- wagmi.sh
+- Next.js
+- ethers.js
+- Etherscan API
+
+
+## How to use this template
+
+
+### 1. Clone this app
+```
+git clone https://github.com/ericc572/fireblocks-demo-app.
+>>>>>>> Stashed changes
